@@ -1,0 +1,23 @@
+{
+    "setUp":
+            {
+                "url_path":"../../config/data_base",
+                "cookie_path":"../../config/data_cookie",
+                "locate_mode":"partial_link",
+                "locate_msg":"市场营销",
+                "resource_locate":"link",
+                "resource_locate_msg":"简历资源",
+                "decode_url":"../../config/data_base"
+            },
+    "test_marketing_query":
+            {
+                "locate_mode":"css",
+                "locate_msg":"#netCus-table > tbody",
+                "result_locate_mode":"css",
+                "result_locate_msg":"#queryDiv > div.bootstrap-table > div.fixed-table-container > div.fixed-table-pagination > div.pull-left.pagination-detail > span.pagination-info",
+                "sql_bath":"../../config/data_base"
+            }
+
+}
+
+

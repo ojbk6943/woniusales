@@ -1,0 +1,17 @@
+[
+    [
+        {"poolSelect":"临时池","empNameSelect":"倪雪","statusSelect":"新入库","sourceSelect":"专属",
+        "date1":"2019-11-01","date2":"2019-11-31","cusInfo":"13300000000"},
+        "query-pass"
+    ],
+    [
+        {"poolSelect":"全部","empNameSelect":"全部","statusSelect":"全部","sourceSelect":"全部",
+        "date1":"","date2":"2019-11-31","cusInfo":""},
+        "query-pass"
+    ],
+    [
+        {"poolSelect":"全部","empNameSelect":"全部","statusSelect":"全部","sourceSelect":"全部",
+        "date1":"","date2":"","cusInfo":""},
+        "query-fail"
+    ]
+]

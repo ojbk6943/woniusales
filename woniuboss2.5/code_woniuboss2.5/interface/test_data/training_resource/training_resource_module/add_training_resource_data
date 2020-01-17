@@ -1,0 +1,10 @@
+[
+    [
+        {"add_training_resource_url":"/WoniuBoss2.5/cons/addCus"},
+        {"cus.tel":"13034000009","cus.name":"杜子腾","cus.sex":"男","cus.last_status":"培训过",
+        "cus.email":"0","cus.qq":"0","cus.school":"","cus.education":"本科","cus.major":"","cus.intent":"",
+        "cus.workage":"应届毕业生","cus.salary":"","cus.source":"智联招聘","cus.applposition":"","cus.age":"",
+        "cus.eduexp":"","cus.experience":"","cus.last_tracking_remark":""},
+        "add-training-resource-pass"
+    ]
+]

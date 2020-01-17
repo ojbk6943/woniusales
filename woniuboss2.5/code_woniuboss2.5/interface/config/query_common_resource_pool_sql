@@ -1,0 +1,6 @@
+{
+    "1":"select count(customer_id) from customer where pool_type='public';",
+    "2":"select count(customer_id) from customer where pool_type='public' and last_status='%s' and source='%s';",
+    "3":"select count(customer_id) from customer where pool_type='public' and work_id='%s' and source='%s';",
+    "4":"select count(customer_id) from customer where pool_type='public' and work_id='%s' and last_status='%s';"
+}

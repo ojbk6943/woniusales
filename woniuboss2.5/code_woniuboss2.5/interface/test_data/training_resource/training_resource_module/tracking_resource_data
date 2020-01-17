@@ -1,0 +1,9 @@
+[
+    [
+        {"tracking_resource_url":"/WoniuBoss2.5/resource/saveTrackingRecord"},
+        {"fee":"18800元","remark":"学历非常好","status":"新认领",
+        "id":"592787","nextTime":"2019-12-05","priority":"低"},
+        {"sql":"select count(tracking_record_id) from tracking_record"},
+        "tracking-resource-pass"
+    ]
+]

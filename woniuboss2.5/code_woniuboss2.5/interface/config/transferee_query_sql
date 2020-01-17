@@ -1,0 +1,11 @@
+{
+    "1":"select count(customer_id) from customer;",
+    "2":"select count(customer_id) from customer where source='%s' and last_status='%s';",
+    "3":"select count(customer_id) from customer where region='%s' and last_status='%s';",
+    "4":"select count(customer_id) from customer where region='%s' and source='%s';",
+    "5":"select count(customer_id) from customer where work_id='%s' and status='%s';",
+    "6":"select count(customer_id) from customer where work_id='%s' and source='%s';",
+    "7":"select count(customer_id) from customer where work_id='%s' and region='%s';",
+    "8":"select count(customer_id) from customer where work_id='%s' and region='%s' and source='%s' and last_status='%s';"
+}
+

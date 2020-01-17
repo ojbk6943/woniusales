@@ -1,0 +1,77 @@
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.student_id"
+
+1275
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.student_name"
+
+冷佩2019-11-12
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.student_no"
+
+WNCD201805038
+-----------------------------2736126319641
+Content-Disposition: form-data; name="class_no"
+
+WNCDC034
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.tel"
+
+18382110815
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.sex"
+
+女
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.status"
+
+在校学习
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.email"
+
+
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.QQ"
+
+850900362
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.source"
+
+智联招聘
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.emergency_person"
+
+辜水容
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.emergency_tel"
+
+18782261767
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.school"
+
+西南科技大学
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.education"
+
+本科
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.major"
+
+过程设备与控制工程
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.IDnumber"
+
+51382219930927716X
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.graduation_time"
+
+2016-06-30
+-----------------------------2736126319641
+Content-Disposition: form-data; name="stu.age"
+
+25
+-----------------------------2736126319641
+Content-Disposition: form-data; name="img"; filename=""
+Content-Type: application/octet-stream
+
+-----------------------------2736126319641--

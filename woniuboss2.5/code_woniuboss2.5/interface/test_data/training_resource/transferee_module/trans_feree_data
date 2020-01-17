@@ -1,0 +1,8 @@
+[
+    [
+        {"query_trans_feree_url":"/WoniuBoss2.5/transmit/queryResourcesByInfo"},
+        {"pageSize":"10","pageIndex":"1","cusInfo":"","workId":"WNCD011",
+        "region":"成都","source":"网络","status":"新入库"},
+        "query-trans-feree-pass"
+    ]
+]

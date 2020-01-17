@@ -1,0 +1,8 @@
+{
+    "BASEURL":"http://192.168.2.77:8080/WoniuBoss4.0",
+    "HOST":"192.168.2.77",
+    "USER":"root",
+    "PASSWORD":"123456",
+    "DATABASE":"woniuboss4.0",
+    "DECODE":"Qwoniu123"
+}

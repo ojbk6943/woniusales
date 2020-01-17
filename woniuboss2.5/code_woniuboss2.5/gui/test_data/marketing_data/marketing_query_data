@@ -1,0 +1,18 @@
+[
+    [
+        {"area":"西安","status":"新认领","starttime":"2019-11-01","endtime":"2019-11-31"},
+        "query-pass"
+    ],
+    [
+        {"area":"成都","status":"新认领","starttime":"2019-11-01","endtime":"2019-11-31"},
+        "query-pass"
+    ],
+    [
+        {"area":"全部","status":"全部","starttime":"2019-11-01","endtime":"2019-11-31"},
+        "query-pass"
+    ],
+    [
+        {"area":"全部","status":"全部","starttime":"2019-11-01","endtime":"2019-11-31"},
+        "query-pass"
+    ]
+]

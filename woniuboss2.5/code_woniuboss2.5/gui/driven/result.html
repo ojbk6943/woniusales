@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>flag</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.3"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/3.8.5/echarts.common.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 80%; }
+table       { font-size: 100%; }
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+/*level 调整增加只显示通过用例的分类 --Findyou
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+    //console.log(detail_class.length)
+    if (level == 3) {
+        for (var i = 0; i < detail_class.length; i++){
+            detail_class[i].innerHTML="收起"
+        }
+    }
+    else{
+            for (var i = 0; i < detail_class.length; i++){
+            detail_class[i].innerHTML="详细"
+        }
+    }
+}
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+</script>
+<div style="float: left;width:50%;" class='heading'>
+<h1 style="font-family: Microsoft YaHei">flag</h1>
+<p class='attribute'><strong>测试人员 : </strong> QAer</p>
+<p class='attribute'><strong>开始时间 : </strong> 2019-12-03 10:27:11</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:04:53.529279</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 20 个，通过 13 个，失败 3 个，错误 4 个，通过率= 65.00%</p>
+
+<p class='description'></p>
+</div>
+<div id="chart" style="width:50%;height:400px;float:left;"></div>
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要 [ 65.00% ]</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败 [ 3 ]</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过 [ 13 ]</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有 [ 20 ]</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>详细</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>gui.case.login_test.LoginTest.LoginTest</td>
+    <td class="text-center">2</td>
+    <td class="text-center">2</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',2)" class="detail" id='c1'>详细</a></td>
+</tr>
+
+<tr id='pt1_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_login_0</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_open_page_0_open_page_pass</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>gui.case.marketing_test.MarketingTest.MarketingTest</td>
+    <td class="text-center">4</td>
+    <td class="text-center">2</td>
+    <td class="text-center">2</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c2',4)" class="detail" id='c2'>详细</a></td>
+</tr>
+
+<tr id='pt2_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_marketing_query_0</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt2_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_marketing_query_1</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='ft2_3' class='none'>
+    <td class='failCase'><div class='testcase'>test_marketing_query_2</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft2_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft2_3'>失败</button>
+    <div id='div_ft2_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft2_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft2_3'>失败</button>
+    <div id='div_ft2_3' class="collapse in">
+    <pre>
+    
+ft2_3: Traceback (most recent call last):
+  File "D:\addruanjian\python\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\wang\Desktop\woniuboss_automation\gui\case\marketing_test\MarketingTest.py", line 64, in test_marketing_query
+    self.assertEqual(actual,expect)
+AssertionError: 'query-fail' != 'query-pass'
+- query-fail
++ query-pass
+
+
+<img hidden="hidden" src="" alt="picture_shot" width="300"></img>
+<a  hidden="hidden"  href="">picture_shot</a>
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft2_4' class='none'>
+    <td class='failCase'><div class='testcase'>test_marketing_query_3</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft2_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft2_4'>失败</button>
+    <div id='div_ft2_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft2_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft2_4'>失败</button>
+    <div id='div_ft2_4' class="collapse in">
+    <pre>
+    
+ft2_4: Traceback (most recent call last):
+  File "D:\addruanjian\python\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\wang\Desktop\woniuboss_automation\gui\case\marketing_test\MarketingTest.py", line 64, in test_marketing_query
+    self.assertEqual(actual,expect)
+AssertionError: 'query-fail' != 'query-pass'
+- query-fail
++ query-pass
+
+
+<img hidden="hidden" src="" alt="picture_shot" width="300"></img>
+<a  hidden="hidden"  href="">picture_shot</a>
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>gui.case.training_resource_test.AllocatingResourceTest.AllocatingResourceTest</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c3',1)" class="detail" id='c3'>详细</a></td>
+</tr>
+
+<tr id='ft3_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_allocating_resource_0</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft3_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft3_1'>错误</button>
+    <div id='div_ft3_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft3_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft3_1'>错误</button>
+    <div id='div_ft3_1' class="collapse in">
+    <pre>
+    
+ft3_1: 当前条件下，查询数据为空
+Traceback (most recent call last):
+  File "D:\addruanjian\python\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\wang\Desktop\woniuboss_automation\gui\case\training_resource_test\AllocatingResourceTest.py", line 127, in test_allocating_resource
+    AllocatingResource.allocating_resource_submit_operation(self.driver,allocating_resource_info)
+  File "C:\Users\wang\Desktop\woniuboss_automation\gui\common\training_resource\AllocatingResource.py", line 84, in allocating_resource_submit_operation
+    AllocatingResource.allocating_resource_resume(driver, submit_operation_info["empNameSelect"])
+  File "C:\Users\wang\Desktop\woniuboss_automation\gui\common\training_resource\AllocatingResource.py", line 29, in allocating_resource_resume
+    Service.get_select_result(resume_select_ele, data)
+  File "C:\Users\wang\Desktop\woniuboss_automation\gui\util\Service.py", line 92, in get_select_result
+    Select(ele).select_by_visible_text(data)
+  File "D:\addruanjian\python\lib\site-packages\selenium\webdriver\support\select.py", line 36, in __init__
+    if webelement.tag_name.lower() != "select":
+AttributeError: 'NoneType' object has no attribute 'tag_name'
+
+<img hidden="hidden" src="" alt="picture_shot" width="300"></img>
+<a  hidden="hidden"  href="">picture_shot</a>
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>gui.case.training_resource_test.CommonResourcePoolTest.CommonResourcePoolTest</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c4',1)" class="detail" id='c4'>详细</a></td>
+</tr>
+
+<tr id='ft4_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_common_resource_pool_0</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft4_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft4_1'>错误</button>
+    <div id='div_ft4_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft4_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft4_1'>错误</button>
+    <div id='div_ft4_1' class="collapse in">
+    <pre>
+    
+ft4_1: Traceback (most recent call last):
+  File "D:\addruanjian\python\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\wang\Desktop\woniuboss_automation\gui\case\training_resource_test\CommonResourcePoolTest.py", line 116, in test_common_resource_pool
+    "//table[@id='public-pool-table']/tbody/tr[1]/input").click()
+AttributeError: 'NoneType' object has no attribute 'click'
+
+<img hidden="hidden" src="" alt="picture_shot" width="300"></img>
+<a  hidden="hidden"  href="">picture_shot</a>
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>gui.case.training_resource_test.TrainingResourceTest.TrainingResourceTest</td>
+    <td class="text-center">3</td>
+    <td class="text-center">2</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c5',3)" class="detail" id='c5'>详细</a></td>
+</tr>
+
+<tr id='pt5_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_training_resource_0</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='ft5_2' class='none'>
+    <td class='failCase'><div class='testcase'>test_training_resource_1</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft5_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft5_2'>失败</button>
+    <div id='div_ft5_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft5_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft5_2'>失败</button>
+    <div id='div_ft5_2' class="collapse in">
+    <pre>
+    
+ft5_2: 54
+select count(customer_id) from customer where pool_type != "public" and create_time between "" and "2019-11-31" and type="下载"
+(57,)
+Traceback (most recent call last):
+  File "D:\addruanjian\python\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\wang\Desktop\woniuboss_automation\gui\case\training_resource_test\TrainingResourceTest.py", line 98, in test_training_resource
+    self.assertEqual(actual, expect)
+AssertionError: 'query-fail' != 'query-pass'
+- query-fail
++ query-pass
+
+
+<img hidden="hidden" src="" alt="picture_shot" width="300"></img>
+<a  hidden="hidden"  href="">picture_shot</a>
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt5_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_training_resource_2</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>gui.case.training_resource_test.TransfereeTest.TransfereeTest</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c6',1)" class="detail" id='c6'>详细</a></td>
+</tr>
+
+<tr id='pt6_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_transferee_0</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>gui.case.trainees_management_test.TraineesManagementTest.TraineesManagementTest</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c7',1)" class="detail" id='c7'>详细</a></td>
+</tr>
+
+<tr id='ft7_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_trainees_management_0</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft7_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft7_1'>错误</button>
+    <div id='div_ft7_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft7_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft7_1'>错误</button>
+    <div id='div_ft7_1' class="collapse in">
+    <pre>
+    
+ft7_1: Traceback (most recent call last):
+  File "D:\addruanjian\python\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\wang\Desktop\woniuboss_automation\gui\case\trainees_management_test\TraineesManagementTest.py", line 138, in test_trainees_management
+    "//table[@id='stuInfo_table']/tbody/tr[1]/td[12]/input/button[1]")
+  File "C:\Users\wang\Desktop\woniuboss_automation\gui\case\trainees_management_test\TraineesManagementTest.py", line 84, in verification_check_result
+    Service.get_tier_ele(check_ele, By.CSS_SELECTOR,check_path).click()
+AttributeError: 'NoneType' object has no attribute 'click'
+
+<img hidden="hidden" src="" alt="picture_shot" width="300"></img>
+<a  hidden="hidden"  href="">picture_shot</a>
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>gui.case.trainees_management_test.CourseArrangementTest.CourseArrangementTest</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c8',1)" class="detail" id='c8'>详细</a></td>
+</tr>
+
+<tr id='pt8_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_course_arrangement_0</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>gui.case.trainees_management_test.ClassManagementTest.ClassManagementTest</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c9',1)" class="detail" id='c9'>详细</a></td>
+</tr>
+
+<tr id='pt9_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_class_management_0</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>gui.case.trainees_management_test.TodayAttendanceTest.TodayAttendanceTest</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c10',1)" class="detail" id='c10'>详细</a></td>
+</tr>
+
+<tr id='pt10_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_today_attendance_0</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>gui.case.trainees_management_test.TodayMorningExamTest.TodayMorningExamTest</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c11',1)" class="detail" id='c11'>详细</a></td>
+</tr>
+
+<tr id='pt11_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_today_morning_exam_0</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>gui.case.trainees_management_test.StudentsVacateTest.StudentsVacateTest</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c12',1)" class="detail" id='c12'>详细</a></td>
+</tr>
+
+<tr id='ft12_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_students_vacate_0</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft12_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft12_1'>错误</button>
+    <div id='div_ft12_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft12_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft12_1'>错误</button>
+    <div id='div_ft12_1' class="collapse in">
+    <pre>
+    
+ft12_1: Traceback (most recent call last):
+  File "D:\addruanjian\python\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\wang\Desktop\woniuboss_automation\gui\case\trainees_management_test\StudentsVacateTest.py", line 82, in test_students_vacate
+    StudentsVacate.students_vacate_update(self.driver)
+  File "C:\Users\wang\Desktop\woniuboss_automation\gui\common\trainees_management\StudentsVacate.py", line 111, in students_vacate_update
+    Service.get_ele(driver, By.CSS_SELECTOR ,"#selectStuLeave").send_keys("C:\\Users\wang\Desktop\woniuboss_automation\gui_interface\\test_data\\trainees_management_data\student_vacat.jpg")
+  File "D:\addruanjian\python\lib\site-packages\selenium\webdriver\remote\webelement.py", line 479, in send_keys
+    'value': keys_to_typing(value)})
+  File "D:\addruanjian\python\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "D:\addruanjian\python\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\addruanjian\python\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: File not found: C:\Users\wang\Desktop\woniuboss_automation\gui_interface\test_data\trainees_management_data\student_vacat.jpg
+
+
+<img hidden="hidden" src="" alt="picture_shot" width="300"></img>
+<a  hidden="hidden"  href="">picture_shot</a>
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>gui.case.trainees_management_test.StagedEvaluationTest.StagedEvaluationTest</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c13',1)" class="detail" id='c13'>详细</a></td>
+</tr>
+
+<tr id='pt13_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_staged_evaluation_0</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>gui.case.trainees_management_test.EvaluationRecordsTest.Evaluation_Records_Test</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c14',1)" class="detail" id='c14'>详细</a></td>
+</tr>
+
+<tr id='pt14_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_evaluation_records_0</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>总计</td>
+    <td>20</td>
+    <td>13</td>
+    <td>3</td>
+    <td>4</td>
+    <td>通过率：65.00%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+
+<script type="text/javascript">
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('chart'));
+
+// 指定图表的配置项和数据
+var option = {
+title : {
+text: '测试执行情况',
+x:'center'
+},
+tooltip : {
+trigger: 'item',
+formatter: "{a} <br/>{b} : {c} ({d}%)"
+},
+color: ['#95b75d', 'grey', '#b64645'],
+legend: {
+orient: 'vertical',
+left: 'left',
+data: ['通过','失败','错误']
+},
+series : [
+{
+name: '测试执行情况',
+type: 'pie',
+radius : '60%',
+center: ['50%', '60%'],
+data:[
+{value:13, name:'通过'},
+{value:3, name:'失败'},
+{value:4, name:'错误'}
+],
+itemStyle: {
+emphasis: {
+shadowBlur: 10,
+shadowOffsetX: 0,
+shadowColor: 'rgba(0, 0, 0, 0.5)'
+}
+}
+}
+]
+};
+
+// 使用刚指定的配置项和数据显示图表。
+myChart.setOption(option);
+</script>
+
+</body>
+</html>

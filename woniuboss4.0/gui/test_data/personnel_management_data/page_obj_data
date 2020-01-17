@@ -1,0 +1,32 @@
+{
+    "setUp":
+            {
+                "url_path":"../../config/data_base",
+                "cookie_path":"../../config/data_cookie",
+                "locate_mode":"partial_link",
+                "locate_msg":"人事管理"
+            },
+    "test_query_employee":
+            {
+                "locate_mode":"css",
+                "locate_msg":"#employee-table > tbody",
+                "result_locate_mode":"css",
+                "result_locate_msg":"#content > div.row.con-margin.con-body-con > div.bootstrap-table > div.fixed-table-container > div.fixed-table-pagination > div.pull-left.pagination-detail > span.pagination-info",
+                "sql_bath":"../../config/data_base"
+            },
+    "test_add_employee":
+            {
+                "add_sql":"select count(employee_id) from employee",
+                "sql_bath":"../../config/data_base"
+            },
+    "test_modify_employee":
+             {
+                "modify_reuslt_ele_locate":"css",
+                "modify_reuslt_ele_msg":"body > div.bootbox.modal.fade.mydialog.in > div > div > div.modal-footer > button",
+                "body_id":"#content",
+                "table_id":"#employee-table",
+                "screen_path":"C:/Users/wang/Desktop/woniuboss4.0/gui/error/person_manage_error/1.png"
+            }
+}
+
+

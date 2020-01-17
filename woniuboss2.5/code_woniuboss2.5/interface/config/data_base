@@ -1,0 +1,8 @@
+{
+    "BASEURL":"http://192.168.2.236:8080",
+    "HOST":"192.168.2.236",
+    "USER":"root",
+    "PASSWORD":"123456",
+    "DATABASE":"woniuboss2.5",
+    "DECODE":"woniu123"
+}

@@ -1,0 +1,15 @@
+[
+    [
+        {"modify_resource_url":"/WoniuBoss2.5/resource/modifyCusInfo"},
+        {"cus.customer_id":"592792","cus.name":"小优秀2019-12-02","cus.sex":"男",
+        "cus.last_status":"培训过","cus.tel":"13000000000","cus.email":"0","cus.qq":"0",
+        "cus.school":"","cus.education":"本科","cus.major":"","cus.intent":"","cus.workage":"应届毕业生",
+        "cus.salary":"","cus.age":"","cus.source":"智联招聘","cus.applposition":"","cus.eduexp":"",
+        "cus.experience":"","cus.last_tracking_remark":""},
+        "modify-resource-pass"
+    ]
+]
+
+
+
+

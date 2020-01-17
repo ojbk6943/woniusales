@@ -1,0 +1,10 @@
+[
+    [
+        {"query_training_resource_url":"/WoniuBoss2.5/resource/queryCusByCusInfo"},
+        {"pageSize":"10","pageIndex":"1","status":"all","cusInfo":"大优秀","lastStatus":"","empName":"",
+        "source":"网络","s_time":"2019-11-01","e_time":"2019-12-02","poolType":""},
+        {"pageSize":"10","pageIndex":"1","status":"all","cusInfo":"D664DBFECBBB12B9605828B3106A615A","lastStatus":"","empName":"",
+        "source":"网络","s_time":"2019-11-01","e_time":"2019-12-02","poolType":""},
+        "query-training-resource-pass"
+    ]
+]

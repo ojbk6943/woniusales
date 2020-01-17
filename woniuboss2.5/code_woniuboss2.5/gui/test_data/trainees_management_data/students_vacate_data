@@ -1,0 +1,11 @@
+[
+    [
+        {"status":"请假中","name":"冷佩"},
+        {"status":"已销假","name":"冷佩"},
+        {"starttime":"2019-11-30","endtime":"2019-11-30","type":"病假",
+        "days":"1","name":"冷佩","cause":"生病了，身体不舒服","opinion":"生病了，身体不舒服，请假一天"},
+        {"status":"请假中","name":"冷佩"},
+        {"status":"已销假","name":"冷佩"},
+        "students-vacate-pass"
+    ]
+]

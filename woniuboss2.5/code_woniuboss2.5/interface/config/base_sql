@@ -1,0 +1,17 @@
+{
+    "1":"",
+    "2":"select count(customer_id),tel from customer where pool_type != 'public' and source='%s' and name='%s' and create_time between '%s' and '%s';",
+    "301":"select count(customer_id),tel from customer where pool_type != 'public' and work_id = '%s' and last_status='%s' and tel='%s' and create_time before '%s';",
+    "302":"select count(customer_id),tel from customer where pool_type != 'public' and work_id = '%s' and last_status='%s' and qq='%s' and create_time before '%s';",
+    "303":"select count(customer_id),tel from customer where pool_type != 'public' and work_id = '%s' and last_status='%s' and name='%s' and create_time before '%s';",
+    "4":"select count(customer_id),tel from customer where pool_type != 'public' and work_id = '%s' and lastStatus='%s' and source = '%s' and create_time after '%s';",
+    "501":"select count(customer_id),tel from customer where poolType = '%s' and last_status='%s' and tel='%s' and create_time before '%s';",
+    "502":"select count(customer_id),tel from customer where poolType = '%s' and last_status='%s' and qq='%s' and create_time before '%s';",
+    "503":"select count(customer_id),tel from customer where poolType = '%s' and last_status='%s' and name='%s' and create_time before '%s';",
+    "6":"select count(customer_id),tel from customer where poolType = '%s' and lastStatus='%s' and source = '%s' and create_time before '%s';",
+    "7":"select count(customer_id),tel from customer where poolType = '%s' and work_id='%s' and create_time between '%s' and '%s';",
+    "801":"select count(customer_id),tel from customer where poolType = '%s' and work_id='%s' and source='%s' and tel='%s';",
+    "802":"select count(customer_id),tel from customer where poolType = '%s' and work_id='%s' and source='%s' and qq='%s';",
+    "803":"select count(customer_id),tel from customer where poolType = '%s' and work_id='%s' and source='%s' and name='%s';"
+}
+
